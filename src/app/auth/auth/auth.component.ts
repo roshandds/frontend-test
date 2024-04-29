@@ -1,17 +1,17 @@
-import { CommonModule, NgStyle } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../auth.service';
-import { Router, RouterModule } from '@angular/router';
-
+import { Router } from '@angular/router';
 @Component({
-  selector: 'app-login',
+  selector: 'app-auth',
   standalone: true,
-  imports: [CommonModule,NgStyle,FormsModule,ReactiveFormsModule, RouterModule],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  imports: [CommonModule,FormsModule,ReactiveFormsModule],
+  templateUrl: './auth.component.html',
+  styleUrl: './auth.component.css'
 })
-export class LoginComponent {
+export class AuthComponent {
+
   emailid: string = '';
   password: string = '';
   username: string = '';
@@ -31,13 +31,9 @@ export class LoginComponent {
         this.emailExists = false;
         this.startSignup = true;
         console.log(error.message)
-        this.router.navigate(['/signup'],{queryParams:{emailid:this.emailid}})
       }
     );
   }
-
-
-
 
   Login() {
     console.log('Login Clicked');
@@ -54,7 +50,10 @@ export class LoginComponent {
       }
     );
   }
-  signup(){
+
+
+  signUp(){
 
   }
 }
+

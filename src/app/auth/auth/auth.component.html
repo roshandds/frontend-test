@@ -1,0 +1,24 @@
+<div class="parent">
+@if(!startSignup){
+  <div class="logindiv">
+    <div class="login-box">
+
+      <!-- <form  [formGroup]="loginform" (ngSubmit)="onSubmit()"> -->
+        <h2>Login</h2>
+        <div class="user-box">
+          <input type="email" name="" required="" [(ngModel)]="emailid">
+          <label>Username</label>
+        </div>
+        <div class="user-box">
+          <input type="password" name="" required="" [(ngModel)]="password">
+          <label>Password</label>
+        </div>
+        <a (click)="onSubmit()" >
+               SEND
+           <span></span>
+        </a>
+      <!-- </form> -->
+    </div>
+  </div>
+}
+</div>

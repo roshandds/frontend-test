@@ -1,6 +1,15 @@
 <div class="parent flex justify-center items-center w-full h-[100vh] bg-gray-500">
 <div class="sidebar w-[25%] h-full">
+<div class="userslist w-full flex justify-center items-center  ">
+<ul class="w-full  p-3 text-[20px] text-[black ] rounded border ">
+@for (item of allusers; track item) {
+  <li class="">{{item.username}}</li>
+}
 
+
+<!-- <li>HEY</li> -->
+</ul>
+</div>
 </div>
 <div class="mainchat w-[75%] h-full bg-gray-900">
 

@@ -22,4 +22,8 @@ login(email:string,password:string):Observable<object>{
 signUp(username:string,email:string,password:string):Observable<object>{
   return this.http.post(this.apiUrl+'/registerUser',{username:username,email:email,password:password});
 }
+
+getAllUsers():Observable<object>{
+return this.http.get(this.apiUrl+'/getAllUsers');
+}
 }
