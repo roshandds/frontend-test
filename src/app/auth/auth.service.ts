@@ -6,9 +6,25 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-http=inject(HttpClient)
-apiUrl:string='http://localhost:3000'
+  http=inject(HttpClient)
+  apiUrl:string='http://localhost:3000'
+
+  private currenttheme:'light' | 'dark' ='light'
+
 constructor() { }
+
+setCurrentTheme(theme:'light' | 'dark'){
+  this.currenttheme = theme
+  document.body.classList.toggle('theme-dark',theme== 'dark')
+}
+
+getcurrentTheme():'light' | 'dark'{
+  return this.currenttheme;
+}
+
+
+
+
 
 checkEmail(email:string):Observable<object>{
   return this.http.post(this.apiUrl+'/verifyEmail',{email:email});

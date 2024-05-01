@@ -11,6 +11,7 @@ import { isObservable } from 'rxjs';
 export class DashboardComponent implements OnInit {
 authservice=inject(AuthService)
 allusers:any;
+nouserSelected:boolean=false;
 ngOnInit(): void {
   //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
   //Add 'implements OnInit' to the class.
@@ -37,6 +38,21 @@ getAllUsers(){
   },err=>{
      console.log(err.message)
   })
+}
+
+
+
+
+
+
+
+
+
+toggleTheme(){
+  console.log('HEwllo')
+  const currentTheme=this.authservice.getcurrentTheme();
+  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    this.authservice.setCurrentTheme(newTheme);
 }
 
 }

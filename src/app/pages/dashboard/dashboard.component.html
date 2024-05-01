@@ -1,17 +1,76 @@
-<div class="parent flex justify-center items-center w-full h-[100vh] bg-gray-500">
-<div class="sidebar w-[25%] h-full">
-<div class="userslist w-full flex justify-center items-center  ">
-<ul class="w-full  p-3 text-[20px] text-[black ] rounded border ">
-@for (item of allusers; track item) {
-  <li class="">{{item.username}}</li>
-}
+<div class="parent flex justify-center items-center w-full h-[100vh] bg-[black]">
+
+  <div class="sidebar w-[25%] h-full bg-[black]   ">
+    <div class="title flex items-center justify-center">
+<h1 class="titletxt text-[white] p-2"  >Hello,</h1>
+    </div>
+<div class="search">
+<!-- <input type="search" > -->
+</div>
+  @for(user of allusers; track $index){
+    <a
+    class="flex items-center gap-3     text-[white]
+     bg-[#2196f300]   p-3 transition-colors hover:bg-gray-100 bg-[black] dark:hover:bg-gray-800 text-[white] cursor-pointer"
+
+  >
+    <span class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full">
+      <span class="flex h-full w-full items-center justify-center rounded-full bg-muted">OD</span>
+    </span>
+    <div class="flex-1">
+      <div class="font-medium">{{user.username}}</div>
+      <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-1">
+      </p>
+    </div>
+  </a>
+  }
 
 
-<!-- <li>HEY</li> -->
-</ul>
+  </div>
+  <div class="mainchat w-[75%] h-full bg-[black]">
+<div class="mainchat-header flex justify-center items-center">
+
+<div class="card border rounded-2xl w-[90%] h-10% mt-[1%] text-[white] bg-[#4d4d4d] p-4">
+<div class="containert flex  items-center gap-5">
+  <div class="backbutton">
+    <img class="hover:cursor-pointer " src="../../../assets/left.svg" alt="" width="35px">
+  </div>
+<div class="img border w-10 rounded-full h-10 flex justify-center ">
+  <img src="../../../assets/avatar.jpeg"  width="30px" alt="" class="rounded-full object-cover">
 </div>
+<div class="username">
+<span>Kaushal Gohil</span>
 </div>
-<div class="mainchat w-[75%] h-full bg-gray-900">
+  <div class="buttons flex w-full  justify-end g-[5%]">
+<div class="btn"><img width="40px" src="../../../assets/video-svgrepo-com (2).svg" alt=""></div>
+<div class="btn"><img width="40px" src="../../../assets/phone-svgrepo-com.svg" alt=""></div>
+<div class="btn"><img width="40px" src="../../../assets/close-x-svgrepo-com (1).svg" alt=""></div>
+  </div>
+</div>
 
 </div>
+
 </div>
+
+    <!-- @if(nouserSelected){
+      <div class="video h-full w-full flex justify-center items-center">
+        <video class=" " autoplay [controls]="false" src="https://firebasestorage.googleapis.com/v0/b/angular-fire-image.appspot.com/o/images%2FMui%20Goku%20live%20wallpaper%204K%20by%20motion%20graphics%20en%20koncepto.mp4?alt=media&token=9fe12eb4-c4dd-4d07-a06e-6d532db80027"></video>
+        </div>
+    } -->
+  </div>
+</div>
+
+
+<!-- toggle -->
+<!-- <label class="ui-switch">
+  <input type="checkbox" (click)="toggleTheme()">
+  <div class="slider">
+    <div class="circle"></div>
+  </div>
+</label> -->
+
+
+
+
+
+
+
