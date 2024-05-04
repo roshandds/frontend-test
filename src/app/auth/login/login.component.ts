@@ -95,4 +95,9 @@ checkLocal(){
   signup(){
 
   }
+
+
+  gotoSignup(){
+this.router.navigate(['signup'])
+  }
 }

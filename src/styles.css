@@ -9,12 +9,11 @@
   padding: 0px;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
+html,body{
   height: 100%;
   width: 100%;
 }
+
 .theme-light {
   --color-primary: #0060df;
   --color-secondary: #fbfbfe;

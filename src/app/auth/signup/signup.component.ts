@@ -69,4 +69,8 @@ expand:boolean=false;
     })
 
   }
+
+  gotoLogin(){
+    this.router.navigate(['login'])
+      }
 }

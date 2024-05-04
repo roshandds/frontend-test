@@ -1,15 +1,15 @@
-<div class="parent flex justify-center items-center w-full h-[100vh] bg-[black]">
+<div class="parent flex  w-full h-[100%] bg-[black]">
 
-  <div class="sidebar w-[25%] h-full bg-[black]   ">
+  <div class="sidebar w-[25%]  bg-[black]   ">
     <div class="title flex items-center justify-center">
 <h1 class="titletxt text-[white] p-2"  >Hello,</h1>
     </div>
-<div class="search">
-<!-- <input type="search" > -->
+<div class="search flex items-center justify-center">
+<input class="rounded-e" type="search" placeholder="Enter search ">
 </div>
   @for(user of allusers; track $index){
     <a
-    class="flex items-center gap-3     text-[white]
+    class="flex items-center gap-3  text-[white]
      bg-[#2196f300]   p-3 transition-colors hover:bg-gray-100 bg-[black] dark:hover:bg-gray-800 text-[white] cursor-pointer"
 
   >
@@ -49,6 +49,12 @@
 
 </div>
 
+
+</div>
+<div class="chatcontain w-full p-[5%] flex justify-center s">
+<ul class="text-[white] ">
+  <li>HEy</li>
+</ul>
 </div>
 
     <!-- @if(nouserSelected){

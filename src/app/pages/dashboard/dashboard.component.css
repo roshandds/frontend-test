@@ -1,6 +1,7 @@
  .parent {
   background-color: var(--primary-color);
   color: var(--text-color);
+  background-color: black;
 }
 
 
