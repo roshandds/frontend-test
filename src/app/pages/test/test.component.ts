@@ -1,5 +1,6 @@
 import { NgClass } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-test',
@@ -10,10 +11,14 @@ import { Component } from '@angular/core';
 })
 export class TestComponent {
   isLightTheme:boolean=true;
+  router=inject(Router)
   userList=['roshan','kaushal']
   // selectedUser=[message:"hellow","message":"hellow", ]
 selecteduser=false;
   selectUser(user:any){
 return false
+  }
+  goBack(){
+this.router.navigate(['dashboard']);
   }
 }

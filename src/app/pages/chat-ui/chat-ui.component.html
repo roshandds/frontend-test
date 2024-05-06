@@ -1,35 +1,63 @@
-<div class="parent">
-  <div class="mainchat w-full h-[100vh] bg-[black]">
-    <div class="mainchat-header flex justify-center items-center">
-
-    <div class="card border rounded-2xl w-[90%] h-10% mt-[1%] text-[white] bg-[#4d4d4d] p-4">
-    <div class="containert flex  items-center gap-5">
-      <div class="backbutton">
-        <img class="hover:cursor-pointer " src="../../../assets/left.svg" alt="" width="35px">
-      </div>
-    <div class="img border w-10 rounded-full h-10 flex justify-center ">
-      <img src="../../../assets/avatar.jpeg"  width="30px" alt="" class="rounded-full object-cover">
+<div class="parent h-[100vh] bg-black">
+  <div class=''>
+    <div>
+        <div class='flex flex-col'>
+            <div class='flex px-7 py-2 items-center justify-between'>
+                <div class='flex items-center gap-5'>
+                  <img class="cursor-pointer" (click)="goBack()" src="../../../assets/left-2-svgrepo-com.svg" width="40px" alt="">
+                    <div class='rounded-full overflow-hidden'>
+                        <img class='w-12' src="https://wallpapers.com/images/hd/naruto-profile-pictures-sa1tekghfajrr928.jpg" alt="naruto" />
+                    </div>
+                    <div class=''>
+                        <p class='text-white  lg:text-[12px]'>Naruto Uzumaki</p>
+                        <p class='text-[#53ff53]'>Online</p>
+                    </div>
+                </div>
+                <div class='flex items-center gap-6'>
+                    <button><img width="40px" src="../../../assets/video-svgrepo-com (2).svg" alt="">
+                    </button>
+                    <button><img width="40px" src="../../../assets/phone-svgrepo-com.svg" alt="">
+                    </button>
+                    <!-- <button>text
+                    </button> -->
+                </div>
+            </div>
+            <div class='bg-[#000000] flex flex-col justify-between pt-2'>
+                <div class='h-[calc(100vh-150px)] overflow-auto'>
+                  <div class='flex w-full flex-row-reverse gap-3 px-7'>
+                    <div class='rounded-full h-full'>
+                        <img class='w-12 rounded-full h-full' src="https://wallpapers.com/images/hd/naruto-profile-pictures-sa1tekghfajrr928.jpg" alt="naruto" />
+                    </div>
+                    <div class='flex flex-col gap-1'>
+                        <div class='flex gap-4'>
+                            <h4 class='text-[14px] font-bold text-white'>Naruto Uzumaki</h4>
+                            <p class='text-[12px] text-gray-500'>13:30</p>
+                        </div>
+                        <div class='bg-black text-[white] py-1 px-2 rounded-lg'>
+                            <p class='text-[14px] bg-gray text-white'>Lorem ipsum dolor sit amet.</p>
+                        </div>
+                    </div>
+                </div>              </div>
+            </div>
+            <form class='bg-black  text-[white] flex px-5 shadow-lg mt-auto flex items-center justify-center'>
+              <div class='py-4 w-[85%] px-4 flex items-center gap-3'>
+                  <span class='emoji-icon' style='font-size: 25px; color: gray;'><img src="../../../assets/emoji-love-svgrepo-com.svg" alt="" width="40px"></span>
+                  <input placeholder='Enter Mesage...' value='' class='border border-[white] py-2 w-[100%] bg-black text-white outline-none px-3 rounded-full' type="text" />
+              </div>
+              <div class='flex gap-4'>
+                  <button>
+                      <span class='voice-icon' style='font-size: 25px; color: gray;'><img src="../../../assets/voice-fill-svgrepo-com.svg" alt="" width="40px"></span>
+                  </button>
+                  <button>
+                      <span class='link-icon' style='font-size: 25px; color: gray;'><img src="../../../assets/add-svgrepo-com.svg" alt="" width="40px"></span>
+                  </button>
+                  <button type='submit'>
+                      <span class='send-icon' style='font-size: 25px; color: #2c4efa;'> <img src="../../../assets/send-1-svgrepo-com (1).svg" alt="" width="40px"></span>
+                  </button>
+              </div>
+          </form>
+        </div>
     </div>
-    <div class="username">
-    <span>Kaushal Gohil</span>
-    </div>
-      <div class="buttons flex w-full  justify-end g-[5%]">
-    <div class="btn"><img width="40px" src="../../../assets/video-svgrepo-com (2).svg" alt=""></div>
-    <div class="btn"><img width="40px" src="../../../assets/phone-svgrepo-com.svg" alt=""></div>
-    <div class="btn"><img width="40px" src="../../../assets/close-x-svgrepo-com (1).svg" alt=""></div>
-      </div>
-    </div>
-
-    </div>
-
-
-    </div>
-    <div class="chatcontain w-full p-[5%] flex justify-center s">
-    <ul class="text-[white] ">
-      <li>HEy</li>
-    </ul>
-    </div>
-
-
+  </div>
 
 </div>
