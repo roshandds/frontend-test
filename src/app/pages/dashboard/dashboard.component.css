@@ -1,4 +1,4 @@
- .parent {
+ /* .parent {
   background-color: var(--primary-color);
   color: var(--text-color);
   background-color: black;
@@ -45,14 +45,11 @@ a{
 
 
 
-/* switch settings 👇 */
 
 .ui-switch {
-  /* switch */
   --switch-bg: rgb(135, 150, 165);
   --switch-width: 48px;
   --switch-height: 20px;
-  /* circle */
   --circle-diameter: 32px;
   --circle-bg: rgb(0, 56, 146);
   --circle-inset: calc((var(--circle-diameter) - var(--switch-height)) / 2);
@@ -114,7 +111,6 @@ a{
   opacity: 0;
 }
 
-/* actions */
 
 .ui-switch input:checked+.slider .circle {
   left: calc(100% - var(--circle-diameter));
@@ -170,4 +166,4 @@ a{
 
 
 
-
+ */

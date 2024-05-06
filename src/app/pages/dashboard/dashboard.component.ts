@@ -1,6 +1,6 @@
+import { Router } from '@angular/router';
 import { Component, inject, OnInit } from '@angular/core';
 import { AuthService } from '../../auth/auth.service';
-import { isObservable } from 'rxjs';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
@@ -10,22 +10,18 @@ import { isObservable } from 'rxjs';
 })
 export class DashboardComponent implements OnInit {
 authservice=inject(AuthService)
+router=inject(Router)
 allusers:any;
 nouserSelected:boolean=false;
+user:any
+loggedinUser:any
 ngOnInit(): void {
-  //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-  //Add 'implements OnInit' to the class.
-  // this.authservice.get.subscribe(user=>{
-  //   console.log(user)
-  // })
 
 
-
+  this.getCurrentUser();
   this.getAllUsers();
 
-// socket.on('connection',()=>{
 
-// })
 
 
 
@@ -35,14 +31,25 @@ getAllUsers(){
   this.authservice.getAllUsers().subscribe((res:any)=>{
     console.log(res.allusers)
      this.allusers=res.allusers
+     console.log(this.allusers)
   },err=>{
      console.log(err.message)
   })
 }
+getCurrentUser(){
+  this.user=localStorage.getItem('loggedinUser')
+  this.loggedinUser=JSON.parse(this.user)
+  this.loggedinUser=this.loggedinUser._id
+  console.log(this.loggedinUser)
+}
 
 
 
+chat(user:any){
+  console.log(user._id)
 
+this.router.navigate(['chats',user._id]);
+}
 
 
 

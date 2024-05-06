@@ -3,7 +3,9 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router, RouterModule } from '@angular/router';
-import Notiflix, {Notify} from 'notiflix'
+import Notiflix from 'notiflix'
+import { ChatService } from '../../pages/chat.service';
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -16,23 +18,25 @@ export class LoginComponent implements OnInit{
   password: string = '';
   username: string = '';
   authservice = inject(AuthService);
+  chatservice = inject(ChatService);
   router=inject(Router);
   emailExists: boolean = false;
   startSignup: boolean = false;
-
+loggedinUser:any
 usertoken:any;
-  ngOnInit(): void {
+
+ngOnInit(): void {
 // if(this.usertoken.length<0){
 //   console.log(this.usertoken,"usertoken")
 //   this.router.navigate(['/login'])
 // }else{
 //   this.router.navigate(['/dashboard'])
 // }
-setTimeout(() => {
+// setTimeout(() => {
 
-}, 3000);
+// }, 3000);
 // this.checkLocal();
-console.log(this.usertoken)
+// console.log(this.usertoken)
   }
 
 
@@ -79,11 +83,19 @@ checkLocal(){
         console.log(res);
         this.emailid = '';
         this.password = '';
-        console.log(res);
-      Notiflix.Notify.success('Login successful')
-
-        localStorage.setItem('user-token', res.token);
+        this.chatservice.connection()
+        this.chatservice.login(res.data._id)
+        // console.log(res.data);
+        // this.loggedinUser=res.data;
+        // this.setCookie("loggedinUser",this.loggedinUser,1)
+        Notiflix.Notify.success('Login successful')
+        this.loggedinUser=JSON.stringify(res.data)
+        localStorage.setItem('loggedinUser',this.loggedinUser);
         this.router.navigate(['/dashboard'])
+
+        // console.log(this.loggedinUser._id)
+        // console.log(res.data)
+
       },
       (err: any) => {
         console.log(err.message);
@@ -95,7 +107,13 @@ checkLocal(){
   signup(){
 
   }
+setCookie(cookieName: string, cookieValue: string, expireDays: number) {
+  const expireDate = new Date();
+  expireDate.setDate(expireDate.getDate() + expireDays);
 
+  const cookieString = encodeURIComponent(cookieName) + '=' + encodeURIComponent(cookieValue) + ';expires=' + expireDate.toUTCString() + ';path=/';
+  document.cookie = cookieString;
+}
 
   gotoSignup(){
 this.router.navigate(['signup'])
