@@ -14,6 +14,15 @@ connection(){
     console.log(`socket it connected ${this.socket}`)
   })
 }
+ getMessages(): void {
+  this.socket.on('getMessage', (message: any) => {
+    console.log('Received message:', message);
+    // Handle the received message, e.g., update UI
+  });
+}
+getAllMessages(mergeId: string) {
+  this.socket.emit('get-all-messages', { mergeId });
+}
 
 
 login(userId: string) {
@@ -47,15 +56,30 @@ message(){
     return mergedId;
   }
 
-  sendMessage(data:any){
+  sendMessage(data: any) {
+    console.log("sendmessagefunctioncalled", data);
+    // const metadata = {
+    //   senderId: "662a30412dda142dd3334358",
+    //   receiverId: "663202ac8a580d4b1b7c40d7",
+    //   mergeId: this.mergeid,
+    //   message: data
+    // };
+    this.socket.emit('message', data); 
 
-    this.socket.on('message',(data)=>{
-      console.log(data)
-    })
-
-   return  this
+   
   }
 
+
+  getAllChats(){
+    console.log("getallfunctioniscalled")
+    this.socket.on('getMessage', (msg) => {
+      console.log('Received message:', msg);
+      // Handle the received message, e.g., update UI
+    });
+
+
+
+  }
 
 
 }

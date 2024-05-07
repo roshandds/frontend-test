@@ -39,10 +39,10 @@
                     </div>
                 </div>              </div>
             </div>
-            <form class='bg-black  text-[white] flex px-5 shadow-lg mt-auto flex items-center justify-center'>
+            <form [formGroup]="messageform" (ngSubmit)="sendMessage()"class='bg-black  text-[white] flex px-5 shadow-lg mt-auto flex items-center justify-center'>
               <div class='py-4 w-[85%] px-4 flex items-center gap-3'>
                   <span class='emoji-icon' style='font-size: 25px; color: gray;'><img src="../../../assets/emoji-love-svgrepo-com.svg" alt="" width="40px"></span>
-                  <input placeholder='Enter Mesage...' [(ngModel)]="message"  class='border border-[white] py-2 w-[100%] bg-black text-white outline-none px-3 rounded-full' type="text" />
+                  <input placeholder='Enter Mesage...' formControlName="message"   class='border border-[white] py-2 w-[100%] bg-black text-white outline-none px-3 rounded-full' type="text" />
               </div>
               <div class='flex gap-4'>
                   <button>
@@ -52,7 +52,7 @@
                       <span class='link-icon' style='font-size: 25px; color: gray;'><img src="../../../assets/add-svgrepo-com.svg" alt="" width="40px"></span>
                   </button>
                   <button type='submit'>
-                      <span class='send-icon' style='font-size: 25px; color: #2c4efa;'> <img (click)="sendMessage()" src="../../../assets/send-1-svgrepo-com (1).svg" alt="" width="40px"></span>
+                      <span class='send-icon' style='font-size: 25px; color: #2c4efa;'> <img  src="../../../assets/send-1-svgrepo-com (1).svg" alt="" width="40px"></span>
                   </button>
               </div>
           </form>
