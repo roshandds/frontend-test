@@ -42,4 +42,16 @@ signUp(username:string,email:string,password:string):Observable<object>{
 getAllUsers():Observable<object>{
 return this.http.get(this.apiUrl+'/getAllUsers');
 }
+
+
+
+getUserById(id:any):Observable<Object>{
+  console.log(id,'userwithid')
+ return  this.http.post(this.apiUrl+'/getUserById',{userid:id})
+}
+
+
+
+
+
 }

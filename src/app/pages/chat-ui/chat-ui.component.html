@@ -2,14 +2,14 @@
   <div class=''>
     <div>
         <div class='flex flex-col'>
-            <div class='flex px-7 py-2 items-center justify-between'>
+            <div class='upperdiv flex px-7 py-2 items-center justify-between'>
                 <div class='flex items-center gap-5'>
                   <img class="cursor-pointer" (click)="goBack()" src="../../../assets/left-2-svgrepo-com.svg" width="40px" alt="">
                     <div class='rounded-full overflow-hidden'>
                         <img class='w-12' src="https://wallpapers.com/images/hd/naruto-profile-pictures-sa1tekghfajrr928.jpg" alt="naruto" />
                     </div>
                     <div class=''>
-                        <p class='text-white  lg:text-[12px]'>Naruto Uzumaki</p>
+                        <p class='text-white  lg:text-[12px]'>{{clickedUserData.userwithid.username}}</p>
                         <p class='text-[#53ff53]'>Online</p>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
             <form class='bg-black  text-[white] flex px-5 shadow-lg mt-auto flex items-center justify-center'>
               <div class='py-4 w-[85%] px-4 flex items-center gap-3'>
                   <span class='emoji-icon' style='font-size: 25px; color: gray;'><img src="../../../assets/emoji-love-svgrepo-com.svg" alt="" width="40px"></span>
-                  <input placeholder='Enter Mesage...' value='' class='border border-[white] py-2 w-[100%] bg-black text-white outline-none px-3 rounded-full' type="text" />
+                  <input placeholder='Enter Mesage...' [(ngModel)]="message"  class='border border-[white] py-2 w-[100%] bg-black text-white outline-none px-3 rounded-full' type="text" />
               </div>
               <div class='flex gap-4'>
                   <button>
@@ -52,7 +52,7 @@
                       <span class='link-icon' style='font-size: 25px; color: gray;'><img src="../../../assets/add-svgrepo-com.svg" alt="" width="40px"></span>
                   </button>
                   <button type='submit'>
-                      <span class='send-icon' style='font-size: 25px; color: #2c4efa;'> <img src="../../../assets/send-1-svgrepo-com (1).svg" alt="" width="40px"></span>
+                      <span class='send-icon' style='font-size: 25px; color: #2c4efa;'> <img (click)="sendMessage()" src="../../../assets/send-1-svgrepo-com (1).svg" alt="" width="40px"></span>
                   </button>
               </div>
           </form>

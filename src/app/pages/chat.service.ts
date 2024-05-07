@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { io } from "socket.io-client";
@@ -7,7 +8,7 @@ import { io } from "socket.io-client";
 export class ChatService {
 
   private socket = io('http://localhost:3000');
-
+  mergeid:any
 connection(){
   this.socket.on('connection',()=>{
     console.log(`socket it connected ${this.socket}`)
@@ -34,4 +35,27 @@ message(){
   //     });
   //   });
   // }
+
+
+
+
+  mergetheId(senderid: string, receiverid: string): string {
+    this.mergeid = [senderid, receiverid];
+    this.mergeid.sort();
+    const mergedId = this.mergeid.join('');
+    console.log(mergedId, 'mergedid');
+    return mergedId;
+  }
+
+  sendMessage(data:any){
+
+    this.socket.on('message',(data)=>{
+      console.log(data)
+    })
+
+   return  this
+  }
+
+
+
 }

@@ -80,12 +80,12 @@
 
 
 
-<div class="parent h-[100vh] w-full bg-black flex justify-center items">
-  <div class="userdiv h-full w-[30%] border-[white] ">
-    <div class="card">
+<div class="parent h-[100vh] w-full bg-black grid justify-center items">
+  <div class="userdiv h-full w-full border-[white] ">
+    <div class="card h-full w-full ">
       @for(user of allusers; track $index){
-      <a (click)="chat(user)"
-        class="flex items-center gap-3  text-[white]
+      <a  (click)="chat(user)"
+        class="flex items-center gap-3 border-white rounded-sm  text-[white]
        bg-[#2196f300]   p-3 transition-colors hover:bg-gray-100 bg-[black] dark:hover:bg-gray-800 text-[white] cursor-pointer">
         <span class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full">
           <span class="flex h-full w-full items-center justify-center rounded-full bg-muted">OD</span>
