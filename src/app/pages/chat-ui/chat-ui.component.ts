@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../auth/auth.service';
 import { ChatService } from '../chat.service';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { io } from 'socket.io-client';
+import { io, Socket } from 'socket.io-client';
 
 @Component({
   selector: 'app-chat-ui',
@@ -27,43 +27,46 @@ export class ChatUiComponent implements OnInit{
   clickedUserId:any
   clickedUserData:any
   mergeId:string=''
-
-  private socket = io('http://localhost:3000');
+  messageData:{}={}
+  // private socket = io('http://localhost:3000');
 
   goBack(){
     this.router.navigate(['dashboard']);
       }
 
-
-
-
       ngOnInit(): void {
         this.loggedinUser=localStorage.getItem('loggedinUser')
         this.loggedinUser=JSON.parse(this.loggedinUser)
         console.log(this.loggedinUser._id,"loggeduser")
-        //get user by id
+
 
         this.acrouter.params.subscribe((params)=>{
           const frdid=params['_id']
           this.clickedUserId=frdid
           console.log(this.clickedUserId,"frdiddd")
           this.getUserById(this.clickedUserId)
-          // this.sendMessage()
+
+
         })
-        this.getAllMessages();
 
-        // this.chatservice.getget()
+        this.mergeId= this.chatservice.mergetheId(this.loggedinUser._id,this.clickedUserId)
+        this.messageData = {
+          senderId: this.loggedinUser._id,
+          receiverId: this.clickedUserId,
+          mergeId: this.mergeId,
+          message: this.messageform.value.message
+        };
 
-        this.socket.on('getMessage', (msg:any) => {
-          console.log('Received message:', msg);
-        });
-        // this.chatservice.getMessages()
-        // this.getAllMessages()
+
+
+this,this.chatservice.getMessage()
+
+
       }
 
 
 
-      
+
 
 constructor(){
 
@@ -94,17 +97,25 @@ const messageData = {
   message: this.messageform.value.message
 };
 console.log(messageData)
-// Emit the message data to the server
+
 this.chatservice.sendMessage(messageData)
-// Clear the message input
+this.getAllMessages(this.messageData)
+
+
 }
 
 
-getAllMessages() {
+getAllMessages(data:any) {
+  // console.log('getallmessagecalledfunc', data.mergeId)
   this.mergeId= this.chatservice.mergetheId(this.loggedinUser._id,this.clickedUserId)
-  this.chatservice.getAllMessages(this.mergeId);
+ const allmsg= this.chatservice.getAllMessages(data).subscribe((res)=>{
+console.log(res,'msgres')
+ },(err:any)=>{
+  console.log(err)
+  console.log(err.message)
+ })
+ console.log(allmsg,'allmessage')
 }
 }
-
 
 

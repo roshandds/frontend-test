@@ -20,8 +20,15 @@ connection(){
     // Handle the received message, e.g., update UI
   });
 }
-getAllMessages(mergeId: string) {
-  this.socket.emit('get-all-messages', { mergeId });
+getAllMessages(data: string): Observable<any> {
+  console.log("getallmessagefromservice", data)
+  return new Observable((observer) => {
+    this.socket.emit('get-all-messages', data );
+    this.socket.on('all-messages', (messages: any) => {
+      observer.next(messages);
+      console.log(messages,"messagesfromthefrontend")
+    });
+  });
 }
 
 
@@ -30,9 +37,9 @@ login(userId: string) {
   this.socket.emit('login', { id: userId });
 }
 message(){
-  this.socket.emit('login',()=>{
-    console.log('socket user logged in')
-  })
+  // this.socket.emit('login',()=>{
+  //   console.log('socket user logged in')
+  // })
 }
   // sendMessage(message: string): void {
   //   this.socket.emit('message', message);
@@ -64,9 +71,9 @@ message(){
     //   mergeId: this.mergeid,
     //   message: data
     // };
-    this.socket.emit('message', data); 
+    this.socket.emit('message', data);
 
-   
+
   }
 
 
@@ -79,6 +86,12 @@ message(){
 
 
 
+  }
+
+  getMessage(){
+    console.log('Received message:');
+   return this.socket.on('getMessage', (msg:any) => {
+    });
   }
 
 
